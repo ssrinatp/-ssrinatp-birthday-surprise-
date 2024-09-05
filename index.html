@@ -13,7 +13,7 @@
       align-items: center;
       height: 100vh;
       background-color: black;
-      background-image: url("C:/Users/harir/Downloads/Birthday/pexels-brunoscramgnon-5007442.jpg"); /* Replace with an image of colorful lights and balloons */
+      background-image: url("pexels.jpg"); /* Use the correct file path after uploading */
       background-size: cover;
       background-repeat: no-repeat;
       font-family: 'Arial', sans-serif;
@@ -32,7 +32,7 @@
       margin: 0;
       font-weight: 800;
       letter-spacing: -1px;
-      color: #FF69B4; /* A bright pink to add a festive vibe */
+      color: #FF69B4;
     }
 
     h2 {
@@ -43,13 +43,13 @@
     h3 {
       margin-top: 15px;
       font-size: 1.5em;
-      color: #ffffff; /* White text to stand out on the dark background */
+      color: #ffffff;
     }
 
     #countdown {
       font-size: 2em;
       display: none;
-      color: #FFD700; /* Gold color for the countdown */
+      color: #FFD700;
     }
 
     #fireworks, #secondVideo {
@@ -74,15 +74,17 @@
     <h2 id="age"></h2>
     <h3>You are Born Beautiful - Azhagiiiii</h3>
     <div id="countdown"></div>
+
     <div id="fireworks">
       <video id="fireworksVideo" autoplay muted loop>
-        <source src="C:/Users/harir/Downloads/Birthday/vecteezy_celebration-happy-new-year_31645191.mp4"> <!-- Replace with your MP4 URL -->
+        <source src="vic.mp4" type="video/mp4"> <!-- Correct path after uploading to GitHub -->
         Your browser does not support the video tag.
       </video>
     </div>
+
     <div id="secondVideo">
       <video id="secondVideoFile" autoplay muted>
-        <source src="C:/Users/harir/Downloads/Birthday/happy birthday! Swe.mp4"> <!-- Replace with your second MP4 URL -->
+        <source src="Swe.mp4" type="video/mp4"> <!-- Correct path after uploading to GitHub -->
         Your browser does not support the video tag.
       </video>
     </div>
@@ -96,7 +98,6 @@
     const ageInMinutes = Math.floor(ageInMilliseconds / (1000 * 60));
     const ageInYears = now.getFullYear() - birthDate.getFullYear();
 
-    // Display the age and minutes on the page
     document.getElementById('age').innerHTML = `You are ${ageInYears} years old and have been on Earth for ${ageInMinutes.toLocaleString()} minutes!`;
 
     // Countdown function
