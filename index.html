@@ -13,7 +13,7 @@
       align-items: center;
       height: 100vh;
       background-color: black;
-      background-image: url("pexels.jpg"); /* Use the correct file path after uploading */
+      background-image: url("pexels.jpg"); /* Update with correct path */
       background-size: cover;
       background-repeat: no-repeat;
       font-family: 'Arial', sans-serif;
@@ -48,7 +48,7 @@
 
     #countdown {
       font-size: 2em;
-      display: none;
+      display: block;
       color: #FFD700;
     }
 
@@ -77,14 +77,14 @@
 
     <div id="fireworks">
       <video id="fireworksVideo" autoplay muted loop>
-        <source src="vic.mp4" type="video/mp4"> <!-- Correct path after uploading to GitHub -->
+        <source src="vic.mp4" type="video/mp4"> <!-- Correct path -->
         Your browser does not support the video tag.
       </video>
     </div>
 
     <div id="secondVideo">
       <video id="secondVideoFile" autoplay muted>
-        <source src="Swe.mp4" type="video/mp4"> <!-- Correct path after uploading to GitHub -->
+        <source src="Swe.mp4" type="video/mp4"> <!-- Correct path -->
         Your browser does not support the video tag.
       </video>
     </div>
@@ -98,6 +98,7 @@
     const ageInMinutes = Math.floor(ageInMilliseconds / (1000 * 60));
     const ageInYears = now.getFullYear() - birthDate.getFullYear();
 
+    // Display the age and minutes on the page
     document.getElementById('age').innerHTML = `You are ${ageInYears} years old and have been on Earth for ${ageInMinutes.toLocaleString()} minutes!`;
 
     // Countdown function
@@ -120,18 +121,20 @@
 
     // Display the fireworks video after the countdown
     function displayFireworks() {
-      document.getElementById('fireworks').style.display = 'block';
+      const fireworksElement = document.getElementById('fireworks');
+      fireworksElement.style.display = 'block';
 
       // Hide the fireworks after 4 seconds and display the second video
       setTimeout(() => {
-        document.getElementById('fireworks').style.display = 'none';
+        fireworksElement.style.display = 'none';
         displaySecondVideo();
       }, 4000); // 4 seconds duration for fireworks
     }
 
     // Display the second video after fireworks
     function displaySecondVideo() {
-      document.getElementById('secondVideo').style.display = 'block';
+      const secondVideoElement = document.getElementById('secondVideo');
+      secondVideoElement.style.display = 'block';
     }
 
     // Start countdown after greeting and message are shown
