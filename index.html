@@ -13,7 +13,7 @@
       align-items: center;
       height: 100vh;
       background-color: black;
-      background-image: url("pexels.jpg"); /* Update with correct path */
+      background-image: url("pexels.jpg");
       background-size: cover;
       background-repeat: no-repeat;
       font-family: 'Arial', sans-serif;
@@ -72,7 +72,7 @@
   
   <!-- Add background music -->
   <audio id="bgMusic" autoplay loop>
-    <source src="Lovebug.mp3" type="audio/mpeg"> <!-- Correct file path -->
+    <source src="Lovebug.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
@@ -84,20 +84,24 @@
 
     <div id="fireworks">
       <video id="fireworksVideo" autoplay muted loop>
-        <source src="vic.mp4" type="video/mp4"> <!-- Correct path -->
+        <source src="vic.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
 
     <div id="secondVideo">
       <video id="secondVideoFile" autoplay muted>
-        <source src="Swe.mp4" type="video/mp4"> <!-- Correct path -->
+        <source src="Swe.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
   </div>
 
   <script>
+    // Set audio volume to maximum (1.0)
+    const audio = document.getElementById('bgMusic');
+    audio.volume = 1.0;  // 1.0 is the highest volume
+
     // Calculate her age and the number of minutes since birth
     const birthDate = new Date('1997-09-06T00:00:00');
     const now = new Date();
