@@ -71,7 +71,7 @@
 <body>
   
   <!-- Add background music -->
-  <audio id="bgMusic" autoplay loop>
+  <audio id="bgMusic" muted autoplay loop>
     <source src="Lovebug.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -100,7 +100,14 @@
   <script>
     // Set audio volume to maximum (1.0)
     const audio = document.getElementById('bgMusic');
-    audio.volume = 1.0;  // 1.0 is the highest volume
+    audio.volume = 1.0;
+
+    // Unmute audio after 1 second
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        audio.muted = false;
+      }, 1000);
+    });
 
     // Calculate her age and the number of minutes since birth
     const birthDate = new Date('1997-09-06T00:00:00');
