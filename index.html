@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swe's Birthday Surprise</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: black;
+      background-image: url("C:/Users/harir/Downloads/Birthday/pexels-brunoscramgnon-5007442.jpg"); /* Replace with an image of colorful lights and balloons */
+      background-size: cover;
+      background-repeat: no-repeat;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .main-content {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 4em;
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #FF69B4; /* A bright pink to add a festive vibe */
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+
+    h3 {
+      margin-top: 15px;
+      font-size: 1.5em;
+      color: #ffffff; /* White text to stand out on the dark background */
+    }
+
+    #countdown {
+      font-size: 2em;
+      display: none;
+      color: #FFD700; /* Gold color for the countdown */
+    }
+
+    #fireworks, #secondVideo {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <h1>Swe's Day!</h1>
+    <h2 id="age"></h2>
+    <h3>You are Born Beautiful - Azhagiiiii</h3>
+    <div id="countdown"></div>
+    <div id="fireworks">
+      <video id="fireworksVideo" autoplay muted loop>
+        <source src="C:/Users/harir/Downloads/Birthday/vecteezy_celebration-happy-new-year_31645191.mp4"> <!-- Replace with your MP4 URL -->
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div id="secondVideo">
+      <video id="secondVideoFile" autoplay muted>
+        <source src="C:/Users/harir/Downloads/Birthday/happy birthday! Swe.mp4"> <!-- Replace with your second MP4 URL -->
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    // Calculate her age and the number of minutes since birth
+    const birthDate = new Date('1997-09-06T00:00:00');
+    const now = new Date();
+    const ageInMilliseconds = now - birthDate;
+    const ageInMinutes = Math.floor(ageInMilliseconds / (1000 * 60));
+    const ageInYears = now.getFullYear() - birthDate.getFullYear();
+
+    // Display the age and minutes on the page
+    document.getElementById('age').innerHTML = `You are ${ageInYears} years old and have been on Earth for ${ageInMinutes.toLocaleString()} minutes!`;
+
+    // Countdown function
+    function startCountdown() {
+      let countdownNumber = 3;
+      const countdownElement = document.getElementById('countdown');
+      countdownElement.style.display = 'block';
+      countdownElement.innerHTML = countdownNumber;
+
+      const countdownInterval = setInterval(() => {
+        countdownNumber--;
+        if (countdownNumber >= 0) {
+          countdownElement.innerHTML = countdownNumber;
+        } else {
+          clearInterval(countdownInterval);
+          displayFireworks();
+        }
+      }, 1000);
+    }
+
+    // Display the fireworks video after the countdown
+    function displayFireworks() {
+      document.getElementById('fireworks').style.display = 'block';
+
+      // Hide the fireworks after 4 seconds and display the second video
+      setTimeout(() => {
+        document.getElementById('fireworks').style.display = 'none';
+        displaySecondVideo();
+      }, 4000); // 4 seconds duration for fireworks
+    }
+
+    // Display the second video after fireworks
+    function displaySecondVideo() {
+      document.getElementById('secondVideo').style.display = 'block';
+    }
+
+    // Start countdown after greeting and message are shown
+    setTimeout(startCountdown, 3000); // Wait 3 seconds before starting the countdown
+  </script>
+</body>
+</html>
